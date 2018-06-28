@@ -61,6 +61,20 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/adv_cate_add','Manage\AdvController@adv_cate_add');
     Route::post('/adv_cate_save','Manage\AdvController@adv_cate_save');
     Route::get('/adv_cate_del','Manage\AdvController@adv_cate_del'); 
+
+    //FAQ
+    Route::any('/faq_list','Manage\FaqController@adv_list');
+    Route::get('/faq_edit','Manage\FaqController@adv_edit');
+    Route::get('/faq_add','Manage\FaqController@adv_add');
+    Route::post('/faq_save','Manage\FaqController@adv_save');
+    Route::get('/faq_del','Manage\FaqController@adv_del');
+
+    //FAQ-類別
+    Route::any('/faq_cate_list','Manage\FaqController@adv_cate_list');
+    Route::get('/faq_cate_edit','Manage\FaqController@adv_cate_edit');
+    Route::get('/faq_cate_add','Manage\FaqController@adv_cate_add');
+    Route::post('/faq_cate_save','Manage\FaqController@adv_cate_save');
+    Route::get('/faq_cate_del','Manage\FaqController@adv_cate_del');     
 });
 
 Route::group(['prefix' => 'usr'],function(){
