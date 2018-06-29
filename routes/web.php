@@ -70,7 +70,7 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/faq_del','Manage\FaqController@adv_del');
 
     //FAQ-類別
-    Route::any('/faq_cate_list','Manage\FaqController@adv_cate_list1');
+    Route::any('/faq_cate_list','Manage\FaqController@adv_cate_list');
     Route::get('/faq_cate_edit','Manage\FaqController@adv_cate_edit');
     Route::get('/faq_cate_add','Manage\FaqController@adv_cate_add');
     Route::post('/faq_cate_save','Manage\FaqController@adv_cate_save');
