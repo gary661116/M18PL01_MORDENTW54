@@ -4,8 +4,8 @@
 
     use Exception;
     use App\Http\Controllers\Controller;
-    use App\Http\Libs\News;
-    use App\Http\Libs\Images;
+    //use App\Http\Libs\News;
+    //use App\Http\Libs\Images;
     //use View;
 
     class ManageController extends Controller {
