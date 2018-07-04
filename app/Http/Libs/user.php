@@ -1,5 +1,5 @@
 <?php
-   //檔案位置 app/Http/Libs/user.php
+   //檔案位置 app/Http/Libs/User.php
    namespace App\Http\Libs;
 
    use DB;

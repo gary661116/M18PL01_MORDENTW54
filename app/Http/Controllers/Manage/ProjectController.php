@@ -5,7 +5,7 @@
     use Exception;
     use App\Http\Controllers\Controller;
     use App\Http\Libs\Project;
-    use App\Http\Libs\Images;
+    use App\Http\Libs\Cimgs;
     //use View;
 
     class ProjectController extends Controller {
@@ -69,7 +69,7 @@
         //最新消息-新增
         public function proj_add(){
             $CProj = new Project();
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $info1 = $CProj->cate_list("","","Y","");
             $d_cate = $info1['list'];    
             $d_img = $CImg->clist("","news");   
@@ -88,7 +88,7 @@
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $CProj = new Project();
             $info1 = $CProj->cate_list("","","Y","");
             $d_cate = $info1['list'];       

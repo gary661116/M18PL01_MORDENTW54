@@ -4,7 +4,7 @@
 
     use Exception;
     use App\Http\Controllers\Controller;
-    use App\Http\Libs\Images;
+    use App\Http\Libs\Cimgs;
     use App\Http\Libs\News;
     use App\Http\Libs\User;
 
@@ -27,7 +27,7 @@
             }
 
             //參數設定
-            $Cimg = new Images();
+            $Cimg = new Cimgs();
             //接收傳值
             $input = request()->all();
             $img_no = $input['img_no'];
@@ -77,9 +77,11 @@
                              $Cimg->cupdate($img_id, $img_no, $savedFile, $img_sty, $img_cate);
                              //刪除原本所存之圖片
                              if(strlen(trim($pre_filename)) > 0){
-                                unlink($pre_filename);//刪除圖片
+                                //判斷檔案存不存在
+                                if(\File::exists(trim($pre_filename))){
+                                    unlink($pre_filename);//刪除圖片
+                                }
                              }
-
                              break;
                       }
 
@@ -99,7 +101,7 @@
             $img_no = $input['img_no'];
             $img_cate = $input['img_cate'];
             $img_sty = $input['img_sty'];            
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $list = $CImg->cdel($img_id);
 
             //抓取資料

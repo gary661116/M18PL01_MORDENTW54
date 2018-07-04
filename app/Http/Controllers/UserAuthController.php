@@ -39,7 +39,7 @@
                     $error_message['validcode'] = "驗證碼錯誤" . ";ValidCode:" . $ValidCode;
                 }
 
-                $Cuser = new User();
+                $Cuser = new user();
 
                 $data = $Cuser->clist("","","",$signin_id);
         

@@ -5,7 +5,7 @@
     use Exception;
     use App\Http\Controllers\Controller;
     use App\Http\Libs\Advertisement;
-    use App\Http\Libs\Images;
+    use App\Http\Libs\Cimgs;
     //use View;
 
     class AdvController extends Controller {
@@ -69,7 +69,7 @@
         //廣告-新增
         public function adv_add(){
             $CAdv = new Advertisement();
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $info1 = $CAdv->cate_list("","","Y","");
             $d_cate = $info1['list'];    
             $d_img = $CImg->clist("","news");   
@@ -88,7 +88,7 @@
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $CAdv = new Advertisement();
             $info1 = $CAdv->cate_list("","","Y","");
             $d_cate = $info1['list'];       
