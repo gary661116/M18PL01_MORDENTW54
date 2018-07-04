@@ -5,7 +5,7 @@
     use Exception;
     use App\Http\Controllers\Controller;
     use App\Http\Libs\News;
-    use App\Http\Libs\Images;
+    use App\Http\Libs\Cimgs;
     //use View;
 
     class ManageController extends Controller {
@@ -83,7 +83,7 @@
         //最新消息-新增
         public function news_add(){
             $CNews = new News();
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $info1 = $CNews->cate_list("","","Y","");
             $d_cate = $info1['list'];    
             $d_img = $CImg->clist("","news");   
@@ -102,7 +102,7 @@
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
-            $CImg = new Images();
+            $CImg = new Cimgs();
             $CNews = new News();
             $info1 = $CNews->cate_list("","","Y","");
             $d_cate = $info1['list'];       
