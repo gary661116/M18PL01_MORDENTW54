@@ -1,5 +1,5 @@
 <?php
-  $cFix = "N";
+  $cFix = "Y";
 ?>
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
