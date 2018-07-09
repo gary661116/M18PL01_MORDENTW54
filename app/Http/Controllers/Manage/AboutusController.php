@@ -175,7 +175,7 @@
             }
             $C_Cate = new Aboutus();
             
-            $info1 = $CAboutus->cate_list("",$c_sort,$txt_show,$txt_title_query);
+            $info1 = $C_Cate->cate_list("",$c_sort,$txt_show,$txt_title_query);
             
             $info = $info1['list'];
             $csql = $info1['csql'];

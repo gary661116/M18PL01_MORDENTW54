@@ -132,7 +132,7 @@
     </div>
 
     <div class="topBtn-bar btn-group">
-    <button type="button" onclick="location.href='{{ url('/manage/news_cate_add') }}';" class="btn success oi" data-glyph="plus">
+    <button type="button" onclick="location.href='{{ url($SysPath . $cFile_Add) }}';" class="btn success oi" data-glyph="plus">
             新增
         </button>
     </div>
