@@ -6,6 +6,11 @@
         <a href="{{ url('/') }}/manage/adv_cate_list" class='@if($subnav2 == "adv_cate" ) active  @endif'>廣告類別</a>
         <a href="{{ url('/') }}/manage/adv_list" class='@if($subnav2 == "adv_list" ) active  @endif'>廣告清單</a>
     </nav>
+    <header class='collapse-toggle oi @if($subnav == "aboutus" ) active  @endif' data-glyph="cog">關於我們</header>
+    <nav class='collapse-content @if($subnav == "aboutus" ) in  @endif'>
+        <a href="{{ url('/') }}/manage/aboutus_cate_list" class='@if($subnav2 == "aboutus_cate" ) active  @endif'>關於我們類別</a>
+        <a href="{{ url('/') }}/manage/aboutus_list" class='@if($subnav2 == "aboutus_list" ) active  @endif'>關於我們清單</a>
+    </nav>      
     <header class='collapse-toggle oi @if($subnav == "news" ) active  @endif' data-glyph="cog">最新消息</header>
     <nav class='collapse-content @if($subnav == "news" ) in  @endif'>
         <a href="{{ url('/') }}/manage/news_cate_list" class='@if($subnav2 == "news_cate" ) active  @endif'>消息類別</a>
@@ -22,7 +27,11 @@
          <a href="{{ url('/') }}/manage/prod_cates_list" class='@if($subnav2 == "Prod_CateS_List" ) active  @endif'>產品小類</a>
          <a href="{{ url('/') }}/manage/prod_list" class='@if($subnav2 == "Prod_List" ) active  @endif'>產品明細</a>
     </nav>
-    <a href="{{ url('/') }}/manage/faq_list" class='collapse-toggle oi @if($subnav == "Faq" ) active  @endif' data-glyph="flag">FAQ</a>
+    <header class='collapse-toggle oi @if($subnav == "faq" ) active  @endif' data-glyph="cog">FAQ</header>
+    <nav class='collapse-content @if($subnav == "faq" ) in  @endif'>
+        <a href="{{ url('/') }}/manage/faq_cate_list" class='@if($subnav2 == "faq_cate" ) active  @endif'>FAQ類別</a>
+        <a href="{{ url('/') }}/manage/faq_list" class='@if($subnav2 == "faq_list" ) active  @endif'>FAQ清單</a>
+    </nav>      
     <header class='collapse-toggle oi @if($subnav == "Partner" ) active  @endif' data-glyph="cog">合作夥伴</header>
     <nav class='collapse-content @if($subnav == "Partner" ) in  @endif'>
         <a href="{{ url('/') }}/manage/partner_cate_list" class='@if($subnav2 == "Partner_Cate_List" ) active  @endif'>合作夥伴-類別</a>

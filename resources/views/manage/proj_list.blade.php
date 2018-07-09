@@ -1,4 +1,4 @@
-<!-- 檔案位置: resources/views/manage/index.blade.php -->
+<!-- 檔案位置: resources/views/manage/proj_list.blade.php -->
   {{-- 設定變數 --}}
   <?php 
   //$title = '最新消息'; 
