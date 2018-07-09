@@ -1,20 +1,20 @@
 <?php
-    //檔案位置:app/Http/Controllers/Manage/ProjectController.php
+    //檔案位置:app/Http/Controllers/Manage/FaqController.php
     namespace App\Http\Controllers\Manage;
 
     use Exception;
     use App\Http\Controllers\Controller;
-    use App\Http\Libs\Project;
+    use App\Http\Libs\Faq;
     use App\Http\Libs\Cimgs;
     //use View;
 
-    class ProjectController extends Controller {
+    class FaqController extends Controller {
         public function __construct(){
 
         }
 
         //最新消息
-        public function proj_list(){
+        public function c_list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -41,15 +41,15 @@
                 $c_sort = $c_sort + " " + $txt_a_d;
             }
 
-            $CProj = new Project();
-            $info1 = $CProj->cate_list("","","Y","");
+            $CFaq = new Faq();
+            $info1 = $CFaq->cate_list("","","Y","");
             $d_cate = $info1['list'];
-            $info = $CProj->clist("",$c_sort,$txt_show,$txt_title_query,$txt_start_date,$txt_end_date,$txt_index,$txt_cate);
+            $info = $CFaq->clist("",$c_sort,$txt_show,$txt_title_query,$txt_start_date,$txt_end_date,$txt_index,$txt_cate);
             //抓取最新消息資料
 
             
             $data = [
-                'title' => '專案陳列',
+                'title' => 'FAQ陳列',
                 'info' => $info ,
                 'd_cate' => $d_cate,
                 'page' => $page ,
@@ -63,63 +63,63 @@
                 'txt_cate' => $txt_cate,                 
             ];
 
-            return view('manage.proj_list', $data);
+            return view('manage.faq_list', $data);
         }
 
-        //最新消息-新增
-        public function proj_add(){
-            $CProj = new Project();
+        //FAQ-新增
+        public function c_add(){
+            $CFaq = new Faq();
             $CImg = new Cimgs();
-            $info1 = $CProj->cate_list("","","Y","");
+            $info1 = $CFaq->cate_list("","","Y","");
             $d_cate = $info1['list'];    
-            $d_img = $CImg->clist("","proj");   
+            $d_img = $CImg->clist("","faq");   
             $data = [
-                'title' => '專案',
+                'title' => 'FAQ',
                 'action_sty' => 'add',
                 'd_cate' => $d_cate,
                 'd_img' => $d_img,     
             ];
 
-            return view('manage.proj_data', $data);            
+            return view('manage.faq_data', $data);            
         }
 
         //專案-修改
-        public function proj_edit(){
+        public function c_edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
             $CImg = new Cimgs();
-            $CProj = new Project();
-            $info1 = $CProj->cate_list("","","Y","");
+            $CFaq = new Faq();
+            $info1 = $CFaq->cate_list("","","Y","");
             $d_cate = $info1['list'];       
             $d_img = $CImg->clist($id,"");
-            $info = $CProj->clist($id,"","","","","","","");
+            $info = $CFaq->clist($id,"","","","","","","");
             $data = [
-                'title' => '專案',
+                'title' => 'FAQ',
                 'action_sty' => 'edit',
                 'info' => $info ,
                 'd_cate' => $d_cate,
                 'd_img' => $d_img,     
             ];
 
-            return view('manage.proj_data', $data);    
+            return view('manage.faq_data', $data);    
         }
 
-        //最新消息-刪除
-        public function proj_del(){
+        //FAQ-刪除
+        public function c_del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
 
-            $CProj = new Project();
+            $CFaq = new Faq();
             //刪除
-            $info = $CProj->cdel($id);
+            $info = $CFaq->cdel($id);
             //重新導回首頁
-            return redirect('/manage/proj_list');
+            return redirect('/manage/faq_list');
         }
 
-        //最新消息-儲存
-        public function proj_save(){
+        //FAQ-儲存
+        public function c_save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -134,23 +134,23 @@
             $action_sty = $input['action_sty'];
             $c_memo = "";
 
-            $CProj = new Project();
+            $CFaq = new Faq();
 
             switch($action_sty){
                 case "add":
-                    $CProj->cinsert($c_title, $c_date, $c_desc, $show, $hot, $sort, $c_memo, $cate_id, $img_no, session("signin_id"));
+                    $CFaq->cinsert($c_title, $c_date, $c_desc, $show, $hot, $sort, $c_memo, $cate_id, $img_no, session("signin_id"));
                     break;
                 case "edit":
-                    $CProj->cupdate($id, $c_title, $c_date, $c_desc, $show, $hot, $sort, $c_memo, $cate_id, session("signin_id"));
+                    $CFaq->cupdate($id, $c_title, $c_date, $c_desc, $show, $hot, $sort, $c_memo, $cate_id, session("signin_id"));
                     break;
             }
             
             //重新導回首頁
-            return redirect('/manage/proj_list');
+            return redirect('/manage/faq_list');
         }
 
-        //最新消息-類別
-        public function proj_cate_list(){
+        //FAQ-類別
+        public function cate_list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -179,16 +179,16 @@
             {
                 $c_sort = $c_sort + " " + $txt_a_d;
             }
-            $CProj = new Project();
+            $C_Cate = new Faq();
             
-            $info1 = $CProj->cate_list("",$c_sort,$txt_show,$txt_title_query);
+            $info1 = $C_Cate->cate_list("",$c_sort,$txt_show,$txt_title_query);
             
             $info = $info1['list'];
             $csql = $info1['csql'];
             $status = $info1['status'];
 
             $data = [
-                'title' => '專案類別',
+                'title' => 'FAQ類別',
                 'info' => $info ,
                 'page' => $page ,
                 'txt_title_query' => $txt_title_query,
@@ -199,40 +199,40 @@
                 'txt_show' => $txt_show,
             ];
 
-            return view('manage.proj_cate_list', $data);
+            return view('manage.faq_cate_list', $data);
         }
         
-        //專案-類別-新增
-        public function proj_cate_add(){
+        //FAQ-類別-新增
+        public function cate_add(){
             $data = [
-                'title' => '專案類別-新增',
+                'title' => 'FAQ類別-新增',
                 'action_sty' => 'add' ,
             ];
             
-            return view('manage.proj_cate_data', $data);
+            return view('manage.faq_cate_data', $data);
         }
 
-        //專案-類別-修改
-        public function proj_cate_edit(){
+        //FAQ-類別-修改
+        public function cate_edit(){
             //接收傳值
             $input = request()->all();
             $cate_id = $input['cate_id'];
             
-            $CProj = new Project();
-            $info1 = $CProj->cate_list($cate_id,"","","");
+            $C_Cate = new Faq();
+            $info1 = $C_Cate->cate_list($cate_id,"","","");
             $info = $info1['list'];
 
             $data = [
-                'title' => '專案類別-修改',
+                'title' => 'FAQ類別-修改',
                 'action_sty' => 'edit' ,
                 'info' => $info,
             ]; 
             
-            return view('manage.proj_cate_data', $data);
+            return view('manage.faq_cate_data', $data);
         }
 
-        //專案-類別-儲存
-        public function proj_cate_save(){
+        //FAQ-類別-儲存
+        public function cate_save(){
             //接收傳值
             $input = request()->all();
             $action_sty = $input['action_sty'];
@@ -242,33 +242,33 @@
             $show = $input['show'];
             $sort = $input['sort'];
 
-            $CProj = new Project();
+            $C_Cate = new Faq();
 
             switch($action_sty){
                 case "add":
-                    $CProj->cate_insert($cate_name,$cate_desc,$show,$sort,session("signin_id"));
+                    $C_Cate->cate_insert($cate_name,$cate_desc,$show,$sort,session("signin_id"));
                     break;
                 case "edit":
-                    $CProj->cate_update($cate_id,$cate_name,$cate_desc,$show,$sort,session("signin_id"));
+                    $C_Cate->cate_update($cate_id,$cate_name,$cate_desc,$show,$sort,session("signin_id"));
                     break;
             }
 
             //重新導回首頁
-            return redirect('/manage/proj_cate_list');
+            return redirect('/manage/faq_cate_list');
         }
 
-        //專案-類別-刪除
-        public function proj_cate_del(){
+        //FAQ-類別-刪除
+        public function cate_del(){
             //接收傳值
             $input = request()->all();
             $cate_id = $input['cate_id'];
 
-            $CProj = new Project();
+            $C_Cate = new Faq();
             //刪除
-            $info1 = $CProj->cate_del($cate_id);
+            $info1 = $C_Cate->cate_del($cate_id);
             //重新導回首頁
-            return redirect('/manage/proj_cate_list');
+            return redirect('/manage/faq_cate_list');
         }
-        
+          
     }
 ?>

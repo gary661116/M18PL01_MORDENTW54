@@ -63,18 +63,32 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/adv_cate_del','Manage\AdvController@adv_cate_del'); 
 
     //FAQ
-    Route::any('/faq_list','Manage\FaqController@adv_list');
-    Route::get('/faq_edit','Manage\FaqController@adv_edit');
-    Route::get('/faq_add','Manage\FaqController@adv_add');
-    Route::post('/faq_save','Manage\FaqController@adv_save');
-    Route::get('/faq_del','Manage\FaqController@adv_del');
+    Route::any('/faq_list','Manage\FaqController@c_list');
+    Route::get('/faq_edit','Manage\FaqController@c_edit');
+    Route::get('/faq_add','Manage\FaqController@c_add');
+    Route::post('/faq_save','Manage\FaqController@c_save');
+    Route::get('/faq_del','Manage\FaqController@c_del');
 
     //FAQ-類別
-    Route::any('/faq_cate_list','Manage\FaqController@adv_cate_list');
-    Route::get('/faq_cate_edit','Manage\FaqController@adv_cate_edit');
-    Route::get('/faq_cate_add','Manage\FaqController@adv_cate_add');
-    Route::post('/faq_cate_save','Manage\FaqController@adv_cate_save');
-    Route::get('/faq_cate_del','Manage\FaqController@adv_cate_del');     
+    Route::any('/faq_cate_list','Manage\FaqController@cate_list');
+    Route::get('/faq_cate_edit','Manage\FaqController@cate_edit');
+    Route::get('/faq_cate_add','Manage\FaqController@cate_add');
+    Route::post('/faq_cate_save','Manage\FaqController@cate_save');
+    Route::get('/faq_cate_del','Manage\FaqController@cate_del');
+    
+    //關於我們
+    Route::any('/aboutus_list','Manage\AboutusController@c_list');
+    Route::get('/aboutus_edit','Manage\AboutusController@c_edit');
+    Route::get('/aboutus_add','Manage\AboutusController@c_add');
+    Route::post('/aboutus_save','Manage\AboutusController@c_save');
+    Route::get('/aboutus_del','Manage\AboutusController@c_del');
+
+    //關於我們-類別
+    Route::any('/aboutus_cate_list','Manage\AboutusController@cate_list');
+    Route::get('/aboutus_cate_edit','Manage\AboutusController@cate_edit');
+    Route::get('/aboutus_cate_add','Manage\AboutusController@cate_add');
+    Route::post('/aboutus_cate_save','Manage\AboutusController@cate_save');
+    Route::get('/aboutus_cate_del','Manage\AboutusController@cate_del');     
 });
 
 Route::group(['prefix' => 'usr'],function(){
