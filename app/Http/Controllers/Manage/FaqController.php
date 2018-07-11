@@ -14,7 +14,7 @@
         }
 
         //最新消息
-        public function list(){
+        public function c_list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -29,6 +29,16 @@
             $txt_index = "";
             $txt_cate = "";
             $c_sort = "";
+            $txt_a_d = "";
+
+            if(!empty($input)){
+                $txt_sort = $input['txt_sort'];
+                $txt_a_d = $input['txt_a_d'];
+                $txt_show = $input['txt_show'];
+                $txt_inside = $input['txt_inside'];
+                $txt_cate = $input['txt_cate'];
+                $txt_title_query = $input['txt_title_query'];
+            } 
 
             //排序設定
             if (strlen(trim($txt_sort)) > 0)
@@ -67,7 +77,7 @@
         }
 
         //FAQ-新增
-        public function add(){
+        public function c_add(){
             $CFaq = new Faq();
             $CImg = new Cimgs();
             $info1 = $CFaq->cate_list("","","Y","");
@@ -84,7 +94,7 @@
         }
 
         //專案-修改
-        public function edit(){
+        public function c_edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -106,7 +116,7 @@
         }
 
         //FAQ-刪除
-        public function del(){
+        public function c_del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -119,7 +129,7 @@
         }
 
         //FAQ-儲存
-        public function save(){
+        public function c_save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];

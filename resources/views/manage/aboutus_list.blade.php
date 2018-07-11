@@ -239,17 +239,7 @@
                   $show = "草稿";
                   $show_class = "";
               }
-
-              if ($info[$i]->is_index == "Y")
-              {
-                  $str_index = "是";
-                  $index_class = "label-success";
-              }
-              else
-              {
-                  $str_index = "否";
-                  $index_class = "";
-              }
+              
               ?>
                   <tr>
                       <td>

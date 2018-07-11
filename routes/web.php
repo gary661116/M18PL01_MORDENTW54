@@ -21,11 +21,11 @@ Route::get('/','HomeController@indexPage');
 Route::group(['prefix' => 'manage'],function(){
     Route::get('/','Manage\ManageController@indexPage');
     //最新消息
-    Route::any('/news_list','Manage\NewsController@list');
-    Route::get('/news_edit','Manage\NewsController@edit');
-    Route::get('/news_add','Manage\NewsController@add');
-    Route::post('/news_save','Manage\NewsController@save');
-    Route::get('/news_del','Manage\NewsController@del');
+    Route::any('/news_list','Manage\NewsController@c_list');
+    Route::get('/news_edit','Manage\NewsController@c_edit');
+    Route::get('/news_add','Manage\NewsController@c_add');
+    Route::post('/news_save','Manage\NewsController@c_save');
+    Route::get('/news_del','Manage\NewsController@c_del');
 
     //最新消息-類別
     Route::any('/news_cate_list','Manage\NewsController@cate_list');
@@ -35,11 +35,11 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/news_cate_del','Manage\NewsController@cate_del');
 
     //專案
-    Route::any('/proj_list','Manage\ProjectController@list');
-    Route::get('/proj_edit','Manage\ProjectController@edit');
-    Route::get('/proj_add','Manage\ProjectController@add');
-    Route::post('/proj_save','Manage\ProjectController@save');
-    Route::get('/proj_del','Manage\ProjectController@del');
+    Route::any('/proj_list','Manage\ProjectController@c_list');
+    Route::get('/proj_edit','Manage\ProjectController@c_edit');
+    Route::get('/proj_add','Manage\ProjectController@c_add');
+    Route::post('/proj_save','Manage\ProjectController@c_save');
+    Route::get('/proj_del','Manage\ProjectController@c_del');
 
     //專案-類別
     Route::any('/proj_cate_list','Manage\ProjectController@cate_list');
@@ -49,11 +49,11 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/proj_cate_del','Manage\ProjectsController@cate_del'); 
     
     //廣告
-    Route::any('/adv_list','Manage\AdvController@list');
-    Route::get('/adv_edit','Manage\AdvController@edit');
-    Route::get('/adv_add','Manage\AdvController@add');
-    Route::post('/adv_save','Manage\AdvController@save');
-    Route::get('/adv_del','Manage\AdvController@del');
+    Route::any('/adv_list','Manage\AdvController@c_list');
+    Route::get('/adv_edit','Manage\AdvController@c_edit');
+    Route::get('/adv_add','Manage\AdvController@c_add');
+    Route::post('/adv_save','Manage\AdvController@c_save');
+    Route::get('/adv_del','Manage\AdvController@c_del');
 
     //廣告-類別
     Route::any('/adv_cate_list','Manage\AdvController@cate_list');
@@ -63,11 +63,11 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/adv_cate_del','Manage\AdvController@cate_del'); 
 
     //FAQ
-    Route::any('/faq_list','Manage\FaqController@list');
-    Route::get('/faq_edit','Manage\FaqController@edit');
-    Route::get('/faq_add','Manage\FaqController@add');
-    Route::post('/faq_save','Manage\FaqController@save');
-    Route::get('/faq_del','Manage\FaqController@del');
+    Route::any('/faq_list','Manage\FaqController@c_list');
+    Route::get('/faq_edit','Manage\FaqController@c_edit');
+    Route::get('/faq_add','Manage\FaqController@c_add');
+    Route::post('/faq_save','Manage\FaqController@c_save');
+    Route::get('/faq_del','Manage\FaqController@c_del');
 
     //FAQ-類別
     Route::any('/faq_cate_list','Manage\FaqController@cate_list');
@@ -77,11 +77,11 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/faq_cate_del','Manage\FaqController@cate_del');
     
     //關於我們
-    Route::any('/aboutus_list','Manage\AboutusController@list');
-    Route::get('/aboutus_edit','Manage\AboutusController@edit');
-    Route::get('/aboutus_add','Manage\AboutusController@add');
-    Route::post('/aboutus_save','Manage\AboutusController@save');
-    Route::get('/aboutus_del','Manage\AboutusController@del');
+    Route::any('/aboutus_list','Manage\AboutusController@c_list');
+    Route::get('/aboutus_edit','Manage\AboutusController@c_edit');
+    Route::get('/aboutus_add','Manage\AboutusController@c_add');
+    Route::post('/aboutus_save','Manage\AboutusController@c_save');
+    Route::get('/aboutus_del','Manage\AboutusController@c_del');
 
     //關於我們-類別
     Route::any('/aboutus_cate_list','Manage\AboutusController@cate_list');

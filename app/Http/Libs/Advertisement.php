@@ -94,7 +94,12 @@
                   . "values(:cate_name, :cate_desc, :sort, :show, :bd_id, now())";
 
             $input['cate_name'] = $cate_name;
-            $input['cate_desc'] = $cate_desc;
+            if(!empty($cate_desc)){
+                $input['cate_desc'] = $cate_desc;
+            }else{
+                $input['cate_desc'] = "";
+            }
+
             $input['show'] = $show;
             $input['sort'] = $sort;
             $input['bd_id'] = $bd_id; 
@@ -147,7 +152,7 @@
        //基本資料
        //-----------------------------------------------------------------------------------------------------------------//
        //資料呈現
-       public function clist($id = "", $sort = "", $status = "", $title_query = "", $cate_id = ""){
+       public function clist($id = "", $sort = "", $status = "", $title_query = "", $cate_id = "", $is_inside = ""){
             $csql = "";
             $input_chk = "";
 
@@ -218,6 +223,12 @@
                 $input_chk = "Y";
             }
 
+            if(!empty($is_inside)){
+                $csql .= "and a1.is_inside = :is_inside ";
+                $input['is_inside'] = $is_inside;
+                $input_chk = "Y";
+            }
+
             $csql .= "order by ";
             if(empty($sort)){
             $csql .= "  a1.id "; 
@@ -235,9 +246,17 @@
        }
 
        //新增
-       public function cinsert($c_title = "", $c_url = "", $c_desc = "", $is_inside = "", $show = "", $sort = "", $cate_id = "", $img_no = "", $bd_id = "System"){
+       public function cinsert($c_title = "", $c_url = "", $c_desc = "", $show = "", $is_inside = "", $sort = "", $cate_id = "", $img_no = "", $bd_id = "System"){
            if($sort == ""){
                $sort = "0";
+           }
+
+           if(empty($c_url)){
+               $c_url = "";
+           }
+
+           if(empty($c_desc)){
+            $c_desc = "";
            }
 
            $csql = "insert into " . $this->dbf_name . "(cate_id, c_title, c_url, c_desc, is_inside, sort, status, bd_id, bd_dt) "
@@ -299,6 +318,13 @@
                    . "where "
                    . "  id = :id ";
 
+            if(empty($c_url)){
+                $c_url = "";
+            }
+     
+            if(empty($c_desc)){
+                $c_desc = "";
+            }
 
             $input['id'] = $id;
             $input['cate_id'] = $cate_id;

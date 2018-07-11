@@ -14,7 +14,7 @@
         }
 
         //廣告
-        public function list(){
+        public function c_list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -22,13 +22,20 @@
             $txt_title_query = "";
             $page = 1;
             $txt_sort = "";
-            $txt_a_d = "";
-            $txt_start_date = "";
-            $txt_end_date = "";
             $txt_show = "";
-            $txt_index = "";
+            $txt_inside = "";
             $txt_cate = "";
+            $txt_a_d = "";
             $c_sort = "";
+
+            if(!empty($input)){
+                $txt_sort = $input['txt_sort'];
+                $txt_a_d = $input['txt_a_d'];
+                $txt_show = $input['txt_show'];
+                $txt_inside = $input['txt_inside'];
+                $txt_cate = $input['txt_cate'];
+                $txt_title_query = $input['txt_title_query'];
+            }            
 
             //排序設定
             if (strlen(trim($txt_sort)) > 0)
@@ -44,7 +51,7 @@
             $CAdv = new Advertisement();
             $info1 = $CAdv->cate_list("","","Y","");
             $d_cate = $info1['list'];
-            $info = $CAdv->clist("",$c_sort,$txt_show,$txt_title_query,$txt_start_date,$txt_end_date,$txt_index,$txt_cate);
+            $info = $CAdv->clist("",$c_sort,$txt_show,$txt_title_query,$txt_cate,$txt_inside);
             //抓取廣告資料
 
             
@@ -57,9 +64,7 @@
                 'txt_sort' => $txt_sort,
                 'txt_a_d' => $txt_a_d,
                 'txt_show' => $txt_show,                
-                'txt_index' => $txt_index,
-                'txt_start_date' => $txt_start_date,
-                'txt_end_date' => $txt_end_date,
+                'txt_inside' => $txt_inside,
                 'txt_cate' => $txt_cate,                 
             ];
 
@@ -67,12 +72,12 @@
         }
 
         //廣告-新增
-        public function add(){
+        public function c_add(){
             $CAdv = new Advertisement();
             $CImg = new Cimgs();
             $info1 = $CAdv->cate_list("","","Y","");
             $d_cate = $info1['list'];    
-            $d_img = $CImg->clist("","news");   
+            $d_img = $CImg->clist("","adv");   
             $data = [
                 'title' => '廣告',
                 'action_sty' => 'add',
@@ -84,7 +89,7 @@
         }
 
         //廣告-修改
-        public function edit(){
+        public function c_edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -92,8 +97,8 @@
             $CAdv = new Advertisement();
             $info1 = $CAdv->cate_list("","","Y","");
             $d_cate = $info1['list'];       
-            $d_img = $CImg->clist($id,"news");
-            $info = $CAdv->clist($id,"","","","","","","");
+            $d_img = $CImg->clist($id,"adv");
+            $info = $CAdv->clist($id,"","","","","");
             $data = [
                 'title' => '廣告',
                 'action_sty' => 'edit',
@@ -106,7 +111,7 @@
         }
 
         //廣告-刪除
-        public function del(){
+        public function c_del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -119,13 +124,13 @@
         }
 
         //廣告-儲存
-        public function save(){
+        public function c_save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
             $c_title = $input['c_title'];
             $c_desc = $input['c_desc'];
-            $c_date = $input['c_date'];
+            $c_url = $input['c_url'];
             $show = $input['show'];
             $hot = $input['hot'];
             $sort = $input['sort'];
@@ -138,10 +143,10 @@
 
             switch($action_sty){
                 case "add":
-                    $CAdv->cinsert($c_title, $c_date, $c_desc, $show, $hot, $sort, $c_memo, $cate_id, $img_no, session("signin_id"));
+                    $CAdv->cinsert($c_title, $c_url, $c_desc, $show, $hot, $sort, $cate_id, $img_no, session("signin_id"));
                     break;
                 case "edit":
-                    $CAdv->cupdate($id, $c_title, $c_date, $c_desc, $show, $hot, $sort, $c_memo, $cate_id, session("signin_id"));
+                    $CAdv->cupdate($id, $c_title, $c_url, $c_desc, $show, $hot, $sort, $cate_id, session("signin_id"));
                     break;
             }
             
@@ -269,6 +274,6 @@
             //重新導回首頁
             return redirect('/manage/adv_cate_list');
         }
-               
+
     }
 ?>
