@@ -14,7 +14,7 @@
         }
 
         //最新消息
-        public function news_list(){
+        public function list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -67,7 +67,7 @@
         }
 
         //最新消息-新增
-        public function news_add(){
+        public function add(){
             $CNews = new News();
             $CImg = new Cimgs();
             $info1 = $CNews->cate_list("","","Y","");
@@ -84,7 +84,7 @@
         }
 
         //最新消息-修改
-        public function news_edit(){
+        public function edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -106,7 +106,7 @@
         }
 
         //最新消息-刪除
-        public function news_del(){
+        public function del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -119,7 +119,7 @@
         }
 
         //最新消息-儲存
-        public function news_save(){
+        public function save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -150,7 +150,7 @@
         }
 
         //最新消息-類別
-        public function news_cate_list(){
+        public function cate_list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -203,7 +203,7 @@
         }
         
         //最新消息-類別-新增
-        public function news_cate_add(){
+        public function cate_add(){
             $data = [
                 'title' => '最新消息類別-新增',
                 'action_sty' => 'add' ,
@@ -213,7 +213,7 @@
         }
 
         //最新消息-類別-修改
-        public function news_cate_edit(){
+        public function cate_edit(){
             //接收傳值
             $input = request()->all();
             $cate_id = $input['cate_id'];
@@ -232,7 +232,7 @@
         }
 
         //最新消息-類別-儲存
-        public function news_cate_save(){
+        public function cate_save(){
             //接收傳值
             $input = request()->all();
             $action_sty = $input['action_sty'];
@@ -258,7 +258,7 @@
         }
 
         //最新消息-類別-刪除
-        public function news_cate_del(){
+        public function cate_del(){
             //接收傳值
             $input = request()->all();
             $cate_id = $input['cate_id'];

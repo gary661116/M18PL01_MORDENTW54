@@ -14,7 +14,7 @@
         }
 
         //關於我們
-        public function c_list(){
+        public function list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -64,7 +64,7 @@
         }
 
         //關於我們-新增
-        public function c_add(){
+        public function add(){
             $CAboutus = new Aboutus();
             $CImg = new Cimgs();
             $info1 = $CAboutus->cate_list("","","Y","");
@@ -81,7 +81,7 @@
         }
 
         //關於我們-修改
-        public function c_edit(){
+        public function edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -103,7 +103,7 @@
         }
 
         //關於我們-刪除
-        public function c_del(){
+        public function del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -116,7 +116,7 @@
         }
 
         //關於我們-儲存
-        public function c_save(){
+        public function save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];

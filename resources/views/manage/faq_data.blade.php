@@ -116,8 +116,8 @@ if($action_sty == "edit"){
           var sshow = "";
           var shot = "";
           var cmsg = "";
-          var n_title = "";
-          var n_date = "";
+          var c_title = "";
+          var c_date = "";
           c_title = $("#c_title").val();
           c_date = $("#c_date").val();
   

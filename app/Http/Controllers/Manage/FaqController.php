@@ -14,7 +14,7 @@
         }
 
         //最新消息
-        public function c_list(){
+        public function list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -67,7 +67,7 @@
         }
 
         //FAQ-新增
-        public function c_add(){
+        public function add(){
             $CFaq = new Faq();
             $CImg = new Cimgs();
             $info1 = $CFaq->cate_list("","","Y","");
@@ -84,7 +84,7 @@
         }
 
         //專案-修改
-        public function c_edit(){
+        public function edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -106,7 +106,7 @@
         }
 
         //FAQ-刪除
-        public function c_del(){
+        public function del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -119,7 +119,7 @@
         }
 
         //FAQ-儲存
-        public function c_save(){
+        public function save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];

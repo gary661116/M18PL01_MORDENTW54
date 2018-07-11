@@ -21,53 +21,53 @@ Route::get('/','HomeController@indexPage');
 Route::group(['prefix' => 'manage'],function(){
     Route::get('/','Manage\ManageController@indexPage');
     //最新消息
-    Route::any('/news_list','Manage\NewsController@news_list');
-    Route::get('/news_edit','Manage\NewsController@news_edit');
-    Route::get('/news_add','Manage\NewsController@news_add');
-    Route::post('/news_save','Manage\NewsController@news_save');
-    Route::get('/news_del','Manage\NewsController@news_del');
+    Route::any('/news_list','Manage\NewsController@list');
+    Route::get('/news_edit','Manage\NewsController@edit');
+    Route::get('/news_add','Manage\NewsController@add');
+    Route::post('/news_save','Manage\NewsController@save');
+    Route::get('/news_del','Manage\NewsController@del');
 
     //最新消息-類別
-    Route::any('/news_cate_list','Manage\NewsController@news_cate_list');
-    Route::get('/news_cate_edit','Manage\NewsController@news_cate_edit');
-    Route::get('/news_cate_add','Manage\NewsController@news_cate_add');
-    Route::post('/news_cate_save','Manage\NewsController@news_cate_save');
-    Route::get('/news_cate_del','Manage\NewsController@news_cate_del');
+    Route::any('/news_cate_list','Manage\NewsController@cate_list');
+    Route::get('/news_cate_edit','Manage\NewsController@cate_edit');
+    Route::get('/news_cate_add','Manage\NewsController@cate_add');
+    Route::post('/news_cate_save','Manage\NewsController@cate_save');
+    Route::get('/news_cate_del','Manage\NewsController@cate_del');
 
     //專案
-    Route::any('/proj_list','Manage\ProjectController@proj_list');
-    Route::get('/proj_edit','Manage\ProjectController@proj_edit');
-    Route::get('/proj_add','Manage\ProjectController@proj_add');
-    Route::post('/proj_save','Manage\ProjectController@proj_save');
-    Route::get('/proj_del','Manage\ProjectController@proj_del');
+    Route::any('/proj_list','Manage\ProjectController@list');
+    Route::get('/proj_edit','Manage\ProjectController@edit');
+    Route::get('/proj_add','Manage\ProjectController@add');
+    Route::post('/proj_save','Manage\ProjectController@save');
+    Route::get('/proj_del','Manage\ProjectController@del');
 
     //專案-類別
-    Route::any('/proj_cate_list','Manage\ProjectController@proj_cate_list');
-    Route::get('/proj_cate_edit','Manage\ProjectController@proj_cate_edit');
-    Route::get('/proj_cate_add','Manage\ProjectController@proj_cate_add');
-    Route::post('/proj_cate_save','Manage\ProjectController@proj_cate_save');
-    Route::get('/proj_cate_del','Manage\ProjectsController@proj_cate_del'); 
+    Route::any('/proj_cate_list','Manage\ProjectController@cate_list');
+    Route::get('/proj_cate_edit','Manage\ProjectController@cate_edit');
+    Route::get('/proj_cate_add','Manage\ProjectController@cate_add');
+    Route::post('/proj_cate_save','Manage\ProjectController@cate_save');
+    Route::get('/proj_cate_del','Manage\ProjectsController@cate_del'); 
     
     //廣告
-    Route::any('/adv_list','Manage\AdvController@adv_list');
-    Route::get('/adv_edit','Manage\AdvController@adv_edit');
-    Route::get('/adv_add','Manage\AdvController@adv_add');
-    Route::post('/adv_save','Manage\AdvController@adv_save');
-    Route::get('/adv_del','Manage\AdvController@adv_del');
+    Route::any('/adv_list','Manage\AdvController@list');
+    Route::get('/adv_edit','Manage\AdvController@edit');
+    Route::get('/adv_add','Manage\AdvController@add');
+    Route::post('/adv_save','Manage\AdvController@save');
+    Route::get('/adv_del','Manage\AdvController@del');
 
     //廣告-類別
-    Route::any('/adv_cate_list','Manage\AdvController@adv_cate_list');
-    Route::get('/adv_cate_edit','Manage\AdvController@adv_cate_edit');
-    Route::get('/adv_cate_add','Manage\AdvController@adv_cate_add');
-    Route::post('/adv_cate_save','Manage\AdvController@adv_cate_save');
-    Route::get('/adv_cate_del','Manage\AdvController@adv_cate_del'); 
+    Route::any('/adv_cate_list','Manage\AdvController@cate_list');
+    Route::get('/adv_cate_edit','Manage\AdvController@cate_edit');
+    Route::get('/adv_cate_add','Manage\AdvController@cate_add');
+    Route::post('/adv_cate_save','Manage\AdvController@cate_save');
+    Route::get('/adv_cate_del','Manage\AdvController@cate_del'); 
 
     //FAQ
-    Route::any('/faq_list','Manage\FaqController@c_list');
-    Route::get('/faq_edit','Manage\FaqController@c_edit');
-    Route::get('/faq_add','Manage\FaqController@c_add');
-    Route::post('/faq_save','Manage\FaqController@c_save');
-    Route::get('/faq_del','Manage\FaqController@c_del');
+    Route::any('/faq_list','Manage\FaqController@list');
+    Route::get('/faq_edit','Manage\FaqController@edit');
+    Route::get('/faq_add','Manage\FaqController@add');
+    Route::post('/faq_save','Manage\FaqController@save');
+    Route::get('/faq_del','Manage\FaqController@del');
 
     //FAQ-類別
     Route::any('/faq_cate_list','Manage\FaqController@cate_list');
@@ -77,11 +77,11 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/faq_cate_del','Manage\FaqController@cate_del');
     
     //關於我們
-    Route::any('/aboutus_list','Manage\AboutusController@c_list');
-    Route::get('/aboutus_edit','Manage\AboutusController@c_edit');
-    Route::get('/aboutus_add','Manage\AboutusController@c_add');
-    Route::post('/aboutus_save','Manage\AboutusController@c_save');
-    Route::get('/aboutus_del','Manage\AboutusController@c_del');
+    Route::any('/aboutus_list','Manage\AboutusController@list');
+    Route::get('/aboutus_edit','Manage\AboutusController@edit');
+    Route::get('/aboutus_add','Manage\AboutusController@add');
+    Route::post('/aboutus_save','Manage\AboutusController@save');
+    Route::get('/aboutus_del','Manage\AboutusController@del');
 
     //關於我們-類別
     Route::any('/aboutus_cate_list','Manage\AboutusController@cate_list');

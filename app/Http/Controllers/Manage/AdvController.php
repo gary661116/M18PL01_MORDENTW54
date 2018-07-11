@@ -14,7 +14,7 @@
         }
 
         //廣告
-        public function adv_list(){
+        public function list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -67,7 +67,7 @@
         }
 
         //廣告-新增
-        public function adv_add(){
+        public function add(){
             $CAdv = new Advertisement();
             $CImg = new Cimgs();
             $info1 = $CAdv->cate_list("","","Y","");
@@ -84,7 +84,7 @@
         }
 
         //廣告-修改
-        public function adv_edit(){
+        public function edit(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -106,7 +106,7 @@
         }
 
         //廣告-刪除
-        public function adv_del(){
+        public function del(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -119,7 +119,7 @@
         }
 
         //廣告-儲存
-        public function adv_save(){
+        public function save(){
             //接收傳值
             $input = request()->all();
             $id = $input['id'];
@@ -150,7 +150,7 @@
         }
 
         //廣告-類別
-        public function adv_cate_list(){
+        public function cate_list(){
             //接收傳值
             $input = request()->all();
             //變數設定
@@ -203,7 +203,7 @@
         }
         
         //廣告-類別-新增
-        public function adv_cate_add(){
+        public function cate_add(){
             $data = [
                 'title' => '廣告類別-新增',
                 'action_sty' => 'add' ,
@@ -213,7 +213,7 @@
         }
 
         //廣告-類別-修改
-        public function adv_cate_edit(){
+        public function cate_edit(){
             //接收傳值
             $input = request()->all();
             $cate_id = $input['cate_id'];
@@ -232,7 +232,7 @@
         }
 
         //廣告-類別-儲存
-        public function adv_cate_save(){
+        public function cate_save(){
             //接收傳值
             $input = request()->all();
             $action_sty = $input['action_sty'];
@@ -258,7 +258,7 @@
         }
 
         //廣告-類別-刪除
-        public function adv_cate_del(){
+        public function cate_del(){
             //接收傳值
             $input = request()->all();
             $cate_id = $input['cate_id'];
@@ -269,14 +269,6 @@
             //重新導回首頁
             return redirect('/manage/adv_cate_list');
         }
-
-        //大圖廣告
-        public function advertisement(){
-            $data = [
-                'title' => '大圖廣告'
-            ];
-
-            return view('manage.advertisement', $data);
-        }          
+               
     }
 ?>

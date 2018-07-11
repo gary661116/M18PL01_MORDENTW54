@@ -55,10 +55,10 @@
 
   switch ($txt_sort)
   {
-      case "n_title":
+      case "c_title":
           $class_title = $a_d;
           break;
-      case "n_date":
+      case "c_date":
           $class_date = $a_d;
           break;
       case "sort":

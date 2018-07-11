@@ -116,8 +116,8 @@ if($action_sty == "edit"){
           var sshow = "";
           var shot = "";
           var cmsg = "";
-          var n_title = "";
-          var n_date = "";
+          var c_title = "";
+          var c_date = "";
           c_title = $("#c_title").val();
           c_date = $("#c_date").val();
   
@@ -350,7 +350,7 @@ if($action_sty == "edit"){
     </dl>
 
     <dl class="field">
-        <dt class="col-1"><sup title="必填">*</sup> 最新訊息</dt>
+        <dt class="col-1"><sup title="必填">*</sup> 最新專案</dt>
         <dd class="col-3">
             <input type="radio" class="radio" name="hot" id="hotY" value="Y" {{ $c_index_status_Y }} >
             <label for="hotY"></label>
@@ -360,7 +360,7 @@ if($action_sty == "edit"){
             否
         </dd>
         <dd class="col-5">
-            <small class="text-secondary">如選「是」 ，本篇將顯示於最新訊息區</small>
+            <small class="text-secondary">如選「是」 ，本篇將顯示於最新專案區</small>
         </dd>
     </dl>
 

@@ -233,7 +233,7 @@
           </th>
           <th>
               {{-- 點選排序功能 (點一下遞增 asc, 點兩下遞減 desc) --}}
-              <button class="th-sort-toggle {{ $class_index }}" name="btn_index" id="btn_index" onclick="sort('is_index');">顯示於最新訊息區</button>
+              <button class="th-sort-toggle {{ $class_index }}" name="btn_index" id="btn_index" onclick="sort('is_index');">顯示於最新FAQ區</button>
           </th>
           <th class="item-edit">刪除</th>
       </tr>
