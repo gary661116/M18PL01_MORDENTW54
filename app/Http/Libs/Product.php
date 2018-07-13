@@ -436,6 +436,12 @@
            $sort = "0";
        }
 
+       if(empty($cateb_id)){
+
+       }else{
+           
+       }
+
        $csql = "insert into " . $this->dbf_name . "(cate_id, c_title, c_date, c_desc, c_memo, is_index, sort, status, bd_id, bd_dt) "
              . "values(:cate_id, :c_title, :c_date, :c_desc, :c_memo, :is_index, :sort, :show, :bd_id, now())";
         
