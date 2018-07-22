@@ -16,6 +16,9 @@
 // });
 
 Route::get('/','HomeController@indexPage');
+Route::any('/demo','HomeController@demo');
+Route::any('/demo2','HomeController@demo2');
+Route::any('/guessprice','HomeController@guessprice');
 //Route::get('/sign-in','UserAuthController@signInPage');
 
 Route::group(['prefix' => 'manage'],function(){
@@ -116,7 +119,8 @@ Route::group(['prefix' => 'ajax'],function(){
     //圖片
     Route::post('/img_upload','AjaxController@Img_Upload');
     Route::post('/img_del','AjaxController@Img_Del');
-    Route::post('/upload_image','AjaxController@uploadImage')->name('ckupload');;
+    Route::post('/upload_image','AjaxController@uploadImage')->name('ckupload');
+    Route::post('/guessprice','AjaxController@guessprice');
     //Route::controller('/pic_upload','AjaxController@UploadPicture'); 
 });
 

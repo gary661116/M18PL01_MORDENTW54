@@ -19,7 +19,10 @@
     {{-- 引用 jQuery  --}}
     {{--<script src="//code.jquery.com/jquery-latest.min.js"></script>--}}
     {{-- 引用 JQuery --}}
-     <script src="{{ url('/') }}/Scripts/jquery-1.10.2.min.js"></script>     
+     <script src="{{ url('/') }}/Scripts/jquery-1.10.2.min.js"></script>
+     {{-- 引用 Bootstrap --}}
+     <script src="{{ url('/') }}/Scripts/bootstrap.js"></script>  
+     <script src="{{ url('/') }}/Scripts/respond.js"></script>  
 </head>
 <body>
     <div class="wrapper">

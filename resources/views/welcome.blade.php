@@ -84,6 +84,7 @@
                 @if ($cFix == "Y")
                     <div id="body" style="text-align: center;">
                     <img src="{{ url('/images/web_edit.gif') }}" />
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Faf16888%2Fvideos%2F292487847979841%2F&width=300&show_text=false&height=533&appId" width="300" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
                      </div>
                 @else
                     <div class="title m-b-md">

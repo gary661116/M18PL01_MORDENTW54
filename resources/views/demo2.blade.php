@@ -3,25 +3,7 @@
         <script src="//code.jquery.com/jquery-latest.min.js"></script>
     </head>
     <body>
-        <div id="fb-root"></div>
         <script>
-                window.fbAsyncInit = function() {
-                  FB.init({
-                    appId            : '920819394678406',
-                    autoLogAppEvents : true,
-                    xfbml            : true,
-                    version          : 'v3.0'
-                  });
-                };
-              
-                (function(d, s, id){
-                   var js, fjs = d.getElementsByTagName(s)[0];
-                   if (d.getElementById(id)) {return;}
-                   js = d.createElement(s); js.id = id;
-                   js.src = "https://connect.facebook.net/en_US/sdk.js";
-                   fjs.parentNode.insertBefore(js, fjs);
-                 }(document, 'script', 'facebook-jssdk'));
-
              function chg_url(){
             //     var c_url = "";
             //     //var chtml = "";
@@ -43,7 +25,6 @@
                 <button id="btn_ok" name="btn_ok" onclick="chg_url();">更新</button>
         </form>
         <br />
-        <div id="fb_display" name="fb_display" class="fb-video" data-href="{{ $fb_url }}"  
-        data-allowfullscreen="true" data-width="500"></div>       
+    <iframe src="https://www.facebook.com/plugins/video.php?href={{ $fb_urla }}&width=300&show_text=false&height=533&appId" width="300" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>      
     </body>
 </html>

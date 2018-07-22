@@ -7,6 +7,7 @@
     use App\Http\Libs\Cimgs;
     use App\Http\Libs\News;
     use App\Http\Libs\User;
+    use DB;
 
     class AjaxController extends Controller {
         public function Img_Upload(){
@@ -135,5 +136,42 @@
             return '<script>window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'", "'.$message.'")</script>';
         }
 
+        public function guessprice(){
+            $input = request()->all();
+            //mem_id: mem_id, guess_price:g_price
+            $mem_id = $input['mem_id'];
+            $guess_price = $input['guess_price'];
+            $guess_sty = "";
+            $higher_price = "";
+
+            //1、抓取拍賣的最近一次價格及時間
+            $csql = "select * from guessprice order by g_time desc";
+            $list = DB::select($csql);
+            if (count($list) > 0) {
+                $higher_price = $list[0]->g_price;
+                if($guess_price > $higher_price){
+                     $guess_sty = "Y";
+                }else{
+                     $guess_sty = "N";
+                }
+            }else{
+                $guess_sty = "Y";
+            }
+
+            if($guess_sty == "Y"){
+                $csql = "insert into guessprice(mem_id,g_price,g_time) values(:mem_id,:g_price,now())";
+                $input['mem_id'] = $mem_id;
+                $input['g_price'] = $guess_price;
+
+                $list = DB::select($csql,$input);
+            }
+
+            $csql = "select * from guessprice order by g_time desc";
+            $list1 = DB::select($csql);
+            $data['guess_sty'] = $guess_sty;
+            $data['cdata'] = $list1;
+            
+            return json_encode($data);
+        }
     }
 ?>
