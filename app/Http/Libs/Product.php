@@ -431,9 +431,15 @@
    }
 
    //新增
-   public function cinsert($c_title = "", $c_date = "", $c_desc = "", $show = "", $is_index = "", $sort = "", $c_memo = "", $cate_id = "", $img_no = "", $bd_id = "System"){
+   public function cinsert($c_no = "", $c_title = "", $c_name = "", $c_desc = "", $c_memo = "", $show = "", $sort = "", $cateb_id = "", $cates_id = "", $img_no = "", $bd_id = "System"){
        if($sort == ""){
            $sort = "0";
+       }
+
+       if(empty($cateb_id)){
+
+       }else{
+           
        }
 
        $csql = "insert into " . $this->dbf_name . "(cate_id, c_title, c_date, c_desc, c_memo, is_index, sort, status, bd_id, bd_dt) "
