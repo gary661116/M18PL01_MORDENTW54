@@ -16,11 +16,11 @@
          <script src="{{ url('/') }}/Scripts/jquery-1.10.2.min.js"></script>    
         {{-- 引用 Bootstrap --}}
         <script src="{{ url('/') }}/Scripts/bootstrap.js"></script>  
-        <script src="{{ url('/') }}/Scripts/respond.js"></script> 
-        {{-- 引用 ajax_lib --}}
-        <script src="{{ url('/Scripts/ajax_lib.js') }}"></script>                   
+        <script src="{{ url('/') }}/Scripts/respond.js"></script>                 
     </head>
     <body>
+        {{-- 引用 ajax_lib --}}
+        <script src="{{ url('/Scripts/ajax_lib.js') }}"></script>           
         <script>
              function chk_price(){
                 var mem_id = "{{ $m_id }}";
@@ -62,6 +62,7 @@
                         error:function(xhr, ajaxOptions, thrownError){ 
                             alert(xhr.status); 
                             alert(thrownError); 
+
                         },
                         complete: function () {
                             //alert(tbl_new_list);
@@ -70,7 +71,7 @@
                     });
                 }
 
-                return false;
+                            return false;
              }
         </script>
         <br />
@@ -83,7 +84,7 @@
                 </dd>
             </dl>        
             <footer class="submit-bar clear m-t-24">
-                <button id="btn_ok" name="btn_ok" onclick="chk_price();" class="btn success oi" data-glyph="circle-check">出價</button>
+                <button id="btn_ok" name="btn_ok" onclick="chk_price();return false;" class="btn success oi" data-glyph="circle-check">出價</button>
             </footer>                        
         </form>
         <br />
