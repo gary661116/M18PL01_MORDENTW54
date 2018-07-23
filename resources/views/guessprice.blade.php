@@ -23,7 +23,7 @@
     <body>
         <script>
              function chk_price(){
-                var $mem_id = "{{ $m_id }}";
+                var mem_id = "{{ $m_id }}";
                 var token = $('#_token').val();
                 var g_price = "";
                 var cmsg = "";
@@ -38,26 +38,26 @@
                     alert(cmsg);
                 }else{
                     $.ajax({                
-                        url: '{{ url('/ajax/guessprice') }}',
-                        data: { mem_id: mem_id, guess_price:g_price, _token: token }, //此参数非常严谨，写错一个引号都不行
+                        url: '{{ url('/ajax/gprice') }}',
+                        data: { mem_id: mem_id, guess_price: g_price, _token: token }, //此参数非常严谨，写错一个引号都不行
                         type:"POST",
                         dataType: 'TEXT', //返回值类型 一般设置为json
                         async: false,
                         success: function(JData){
-                            //alert(JData);
+                            alert(JData);
                             data = handleAjaxVPNMsg(JData);
                             i = 0;
                             c_html = "";
             
-                            $.each($.parseJSON(data), function (idx, obj) {
-                                i = i + 1;
-                                c_html = c_html + "<div class=\"uploaded\">";
-                                c_html = c_html + "    <button class=\"close\" id=\"btn_close_" + c_sty + "_" + i + "\" name=\"btn_close_" + c_sty + "_" + i + "\" onclick=\"del_img('" + obj.id + "','" + c_sty + "');\" >&times;</button>";
-                                c_html = c_html + "    <img id=\"img_" + c_sty + "_" + i + "\" name=\"img_" + c_sty + "_" + i + "\" src=\"../Images/" + obj.img_file + "\" alt=\"\">";
-                                c_html = c_html + "</div>";
-                            });
+                            //$.each($.parseJSON(data), function (idx, obj) {
+                            //    i = i + 1;
+                            //    c_html = c_html + "<div class=\"uploaded\">";
+                            //    c_html = c_html + "    <button class=\"close\" id=\"btn_close_" + c_sty + "_" + i + "\" name=\"btn_close_" + c_sty + "_" + i + "\" onclick=\"del_img('" + obj.id + "','" + c_sty + "');\" >&times;</button>";
+                            //    c_html = c_html + "    <img id=\"img_" + c_sty + "_" + i + "\" name=\"img_" + c_sty + "_" + i + "\" src=\"../Images/" + obj.img_file + "\" alt=\"\">";
+                            //    c_html = c_html + "</div>";
+                            //});
             
-                            $('#c_img_' + c_sty).html(c_html);
+                            //$('#c_img_' + c_sty).html(c_html);
                         },
                         error:function(xhr, ajaxOptions, thrownError){ 
                             alert(xhr.status); 

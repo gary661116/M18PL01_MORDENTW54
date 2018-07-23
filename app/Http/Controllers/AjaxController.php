@@ -137,13 +137,14 @@
         }
 
         public function guessprice(){
+            
             $input = request()->all();
             //mem_id: mem_id, guess_price:g_price
             $mem_id = $input['mem_id'];
             $guess_price = $input['guess_price'];
             $guess_sty = "";
             $higher_price = "";
-
+            /*
             //1、抓取拍賣的最近一次價格及時間
             $csql = "select * from guessprice order by g_time desc";
             $list = DB::select($csql);
@@ -170,8 +171,10 @@
             $list1 = DB::select($csql);
             $data['guess_sty'] = $guess_sty;
             $data['cdata'] = $list1;
-            
             return json_encode($data);
+            */
+            return "12345";
+            
         }
     }
 ?>

@@ -120,7 +120,7 @@ Route::group(['prefix' => 'ajax'],function(){
     Route::post('/img_upload','AjaxController@Img_Upload');
     Route::post('/img_del','AjaxController@Img_Del');
     Route::post('/upload_image','AjaxController@uploadImage')->name('ckupload');
-    Route::post('/guessprice','AjaxController@guessprice');
+    Route::post('/gprice','AjaxController@guessprice');
     //Route::controller('/pic_upload','AjaxController@UploadPicture'); 
 });
 
