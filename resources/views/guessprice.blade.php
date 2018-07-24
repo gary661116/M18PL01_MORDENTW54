@@ -44,20 +44,47 @@
                         dataType: 'TEXT', //返回值类型 一般设置为json
                         async: false,
                         success: function(JData){
-                            alert(JData);
+                            //alert(JData);
                             data = handleAjaxVPNMsg(JData);
+                            //alert(data);
+                            var jsdata = jQuery.parseJSON(data);
+                            var g_sty = jsdata.guess_sty; //競標結果
+                            var g_data = jsdata.cdata;    //資料
+                            
+                            //alert(g_data);
+                            if(g_sty == "Y"){
+                                alert("出價成功!!");
+                            }else{
+                                alert("出價失敗!!!");
+                            }
                             i = 0;
                             c_html = "";
-            
-                            //$.each($.parseJSON(data), function (idx, obj) {
-                            //    i = i + 1;
-                            //    c_html = c_html + "<div class=\"uploaded\">";
-                            //    c_html = c_html + "    <button class=\"close\" id=\"btn_close_" + c_sty + "_" + i + "\" name=\"btn_close_" + c_sty + "_" + i + "\" onclick=\"del_img('" + obj.id + "','" + c_sty + "');\" >&times;</button>";
-                            //    c_html = c_html + "    <img id=\"img_" + c_sty + "_" + i + "\" name=\"img_" + c_sty + "_" + i + "\" src=\"../Images/" + obj.img_file + "\" alt=\"\">";
-                            //    c_html = c_html + "</div>";
-                            //});
-            
-                            //$('#c_img_' + c_sty).html(c_html);
+                            //$.each($.parseJSON(g_data), function (idx, obj) {
+                              $.each(g_data, function (idx, obj) {
+                                if(i == 0){
+                                    $('#higher_price').html(obj.g_price);
+                                }
+                                i = i + 1;
+                                c_html = c_html + "<tr>";
+                                c_html = c_html + "  <td>";
+                                c_html = c_html + obj.mem_id;
+                                c_html = c_html + "  </td>";
+                                c_html = c_html + "  <td>";
+                                c_html = c_html + obj.g_price;
+                                c_html = c_html + "  </td>";
+                                c_html = c_html + "  <td>";
+                                c_html = c_html + obj.g_time;
+                                c_html = c_html + "  </td>";                                                                
+                                c_html = c_html + "</tr>";
+                            });
+                            
+                            if(i > 0){
+                                c_html = "<table>"
+                                       + "  <tr><td>競標者</td><td>競標價格</td><td>競標時間</td></tr>"
+                                       + c_html
+                                       + "</table>";
+                            }
+                            $('#pirce_history').html(c_html);
                         },
                         error:function(xhr, ajaxOptions, thrownError){ 
                             alert(xhr.status); 
@@ -89,12 +116,14 @@
         </form>
         <br />
         <div>
+            <!--
                 <dl class="field">
                     <dt class="col-1">目前時間：</dt>
                     <dd class="col-6">
                         <label id="now_time" name="now_time"></label>
                     </dd>
                 </dl>
+            -->
                 <dl class="field">
                         <dt class="col-1">最高出價：</dt>
                         <dd class="col-6">
@@ -106,7 +135,7 @@
                         <dd class="col-6">
                                 <div id="pirce_history">
 
-                                    </div>
+                                </div>
                         </dd>
                 </dl>                                                      
         </div>
