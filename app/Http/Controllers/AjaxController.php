@@ -144,7 +144,7 @@
             $guess_price = $input['guess_price'];
             $guess_sty = "";
             $higher_price = "";
-            /*
+            
             //1、抓取拍賣的最近一次價格及時間
             $csql = "select * from guessprice order by g_time desc";
             $list = DB::select($csql);
@@ -160,11 +160,12 @@
             }
 
             if($guess_sty == "Y"){
-                $csql = "insert into guessprice(mem_id,g_price,g_time) values(:mem_id,:g_price,now())";
-                $input['mem_id'] = $mem_id;
-                $input['g_price'] = $guess_price;
+                $csql = "insert into guessprice(mem_id, g_price, g_time) values(:mem_id,:guess_price, now())";
+                
+                $input1['mem_id'] = $mem_id;
+                $input1['guess_price'] = $guess_price;
 
-                $list = DB::select($csql,$input);
+                $list = DB::select($csql,$input1);
             }
 
             $csql = "select * from guessprice order by g_time desc";
@@ -172,8 +173,6 @@
             $data['guess_sty'] = $guess_sty;
             $data['cdata'] = $list1;
             return json_encode($data);
-            */
-            return "12345";
             
         }
     }

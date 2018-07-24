@@ -76,7 +76,7 @@
         </script>
         <br />
         <form id="form1" name="form1" method="POST" action="">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">     
+            <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">     
             <dl class="field">
                 <dt class="col-1">*競標價格</dt>
                 <dd class="col-6">
