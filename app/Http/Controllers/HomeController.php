@@ -5,6 +5,8 @@
     use Exception;
     use App\Http\Controllers\Controller;
 
+    use DB;
+
     class HomeController extends Controller {
         public function __construct(){
 
@@ -54,8 +56,12 @@
         
         //首頁
         public function guessprice  (){
+
+            $csql = "select * from guessprice order by g_time desc";
+            $list1 = DB::select($csql);
             $data = [
                 'title' => '競價畫面',        
+                'info' => $list1,
             ];
 
             return view('guessprice', $data);

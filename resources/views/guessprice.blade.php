@@ -1,5 +1,13 @@
 <?php
-   $m_id = date("YmdHis"); 
+   $m_id = date("YmdHis");
+   $row_count = count($info);
+   $g_mem = "";
+   $g_price = "";
+   $g_time = "";
+   $higher_price = "";
+   if($row_count > 0){
+     $higher_price = $info[0]->g_price;
+   } 
 ?>
 <html>
     <head>
@@ -52,11 +60,6 @@
                             var g_data = jsdata.cdata;    //資料
                             
                             //alert(g_data);
-                            if(g_sty == "Y"){
-                                alert("出價成功!!");
-                            }else{
-                                alert("出價失敗!!!");
-                            }
                             i = 0;
                             c_html = "";
                             //$.each($.parseJSON(g_data), function (idx, obj) {
@@ -85,6 +88,13 @@
                                        + "</table>";
                             }
                             $('#pirce_history').html(c_html);
+
+                            if(g_sty == "Y"){
+                                alert("出價成功!!");
+                            }else{
+                                alert("出價失敗!!!");
+                            }
+
                         },
                         error:function(xhr, ajaxOptions, thrownError){ 
                             alert(xhr.status); 
@@ -103,7 +113,13 @@
         </script>
         <br />
         <form id="form1" name="form1" method="POST" action="">
-            <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">     
+            <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">  
+            <dl class="field">
+                    <dt class="col-1">競標者</dt>
+                    <dd class="col-6">
+                        <label id="g_mem" name="g_mem">{{ $m_id }}</label>
+                    </dd>
+                </dl>               
             <dl class="field">
                 <dt class="col-1">*競標價格</dt>
                 <dd class="col-6">
@@ -127,14 +143,34 @@
                 <dl class="field">
                         <dt class="col-1">最高出價：</dt>
                         <dd class="col-6">
-                            <label id="higher_price" name="higher_price"></label>
+                        <label id="higher_price" name="higher_price">{{ $higher_price }}</label>
                         </dd>
                     </dl>
                 <dl class="field">
                         <dt class="col-1">出價記錄：</dt>
                         <dd class="col-6">
                                 <div id="pirce_history">
-
+                                    <table>
+                                        <tr>
+                                            <td>競標者</td><td>競標價格</td><td>競標時間</td>
+                                        </tr>
+                                    @if($row_count > 0)
+                                       @for($i = 0; $i < $row_count; $i++)
+                                          <?php
+                                             $g_mem = $info[$i]->mem_id;
+                                             $g_price = $info[$i]->g_price;
+                                             $g_time = $info[$i]->g_time;
+                                          ?>
+                                          <tr>
+                                          <td>{{ $g_mem }}</td><td>{{ $g_price }}</td><td>{{ $g_time }}</td>
+                                          </tr>
+                                       @endfor
+                                    @else
+                                       <tr>
+                                           <td colspan="3">無競標記錄</td>
+                                       </tr>
+                                    @endif
+                                    </table>
                                 </div>
                         </dd>
                 </dl>                                                      
