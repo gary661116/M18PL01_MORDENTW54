@@ -110,6 +110,30 @@
 
                             return false;
              }
+
+             $(document).ready(function(){ 
+                 setInterval("ShowTime()",1000); 
+              });
+
+              function ShowTime(){
+                var Today = new Date();
+                //var yyyy = Today.getFullYear(); //年
+                //var MM = (Today.getMonth()+1);    //月
+                //var dd = Today.getDate();       //日
+                //var h = Today.getHours();       //時
+                //var m = Today.getMinutes();     //分
+                //var s = Today.getSeconds();     //秒
+                var yyyy = Today.toLocaleDateString().slice(0,4)
+                var MM = (Today.getMonth()+1<10 ? '0' : '')+(Today.getMonth()+1);
+                var dd = (Today.getDate()<10 ? '0' : '')+Today.getDate();
+                var h = (Today.getHours()<10 ? '0' : '')+Today.getHours();
+                var m = (Today.getMinutes()<10 ? '0' : '')+Today.getMinutes();
+                var s = (Today.getSeconds()<10 ? '0' : '')+Today.getSeconds();                 
+                var n_time = yyyy + '-' + MM + '-' + dd + ' ' + h + ':' + m + ':' + s;
+                //console.log(n_time); 
+                $('#now_time').html(n_time);   
+              }
+             
         </script>
         <br />
         <form id="form1" name="form1" method="POST" action="">
@@ -132,14 +156,12 @@
         </form>
         <br />
         <div>
-            <!--
                 <dl class="field">
                     <dt class="col-1">目前時間：</dt>
                     <dd class="col-6">
                         <label id="now_time" name="now_time"></label>
                     </dd>
                 </dl>
-            -->
                 <dl class="field">
                         <dt class="col-1">最高出價：</dt>
                         <dd class="col-6">
