@@ -16,10 +16,10 @@
 // });
 
 Route::get('/','HomeController@indexPage');
-Route::any('/demo','HomeController@demo');
-Route::any('/demo2','HomeController@demo2');
-Route::any('/guessprice','HomeController@guessprice');
+
 //Route::get('/sign-in','UserAuthController@signInPage');
+
+
 
 Route::group(['prefix' => 'manage'],function(){
     Route::get('/','Manage\ManageController@indexPage');
@@ -91,7 +91,28 @@ Route::group(['prefix' => 'manage'],function(){
     Route::get('/aboutus_cate_edit','Manage\AboutusController@cate_edit');
     Route::get('/aboutus_cate_add','Manage\AboutusController@cate_add');
     Route::post('/aboutus_cate_save','Manage\AboutusController@cate_save');
-    Route::get('/aboutus_cate_del','Manage\AboutusController@cate_del');     
+    Route::get('/aboutus_cate_del','Manage\AboutusController@cate_del');   
+    
+    //產品
+    Route::any('/prod_list','Manage\ProdController@c_list');
+    Route::get('/prod_edit','Manage\ProdController@c_edit');
+    Route::get('/prod_add','Manage\ProdController@c_add');
+    Route::post('/prod_save','Manage\ProdController@c_save');
+    Route::get('/prod_del','Manage\ProdController@c_del');
+
+    //產品-大類別
+    Route::any('/prod_cateb_list','Manage\ProdController@cate_list');
+    Route::get('/prod_cateb_edit','Manage\ProdController@cate_edit');
+    Route::get('/prod_cateb_add','Manage\ProdController@cate_add');
+    Route::post('/prod_cateb_save','Manage\ProdController@cate_save');
+    Route::get('/prod_cateb_del','Manage\ProdController@cate_del'); 
+
+    //產品-小類別
+    Route::any('/proj_cates_list','Manage\ProdController@cate_list');
+    Route::get('/proj_cates_edit','Manage\ProdController@cate_edit');
+    Route::get('/proj_cates_add','Manage\ProdController@cate_add');
+    Route::post('/proj_cates_save','Manage\ProdController@cate_save');
+    Route::get('/proj_cates_del','Manage\ProdController@cate_del');     
 });
 
 Route::group(['prefix' => 'usr'],function(){
@@ -122,6 +143,17 @@ Route::group(['prefix' => 'ajax'],function(){
     Route::post('/upload_image','AjaxController@uploadImage')->name('ckupload');
     Route::post('/gprice','AjaxController@guessprice');
     //Route::controller('/pic_upload','AjaxController@UploadPicture'); 
+});
+
+//測試專區
+Route::group(['prefix' => 'demo'],function(){
+    //----------------------------------------------------------//
+    //測試
+    Route::any('/demo','DemoController@demo');
+    Route::any('/demo2','DemoController@demo2');
+    Route::any('/demo3','DemoController@demo3');
+    Route::any('/guessprice','DemoController@guessprice');
+    //---------------------------------------------------------//
 });
 
 Route::get('ckeditor-demo',function(){
